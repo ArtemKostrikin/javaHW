@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин ноутбуков</title>
+</head>
+<body>
+    <h2>Выборка ноутбуков по критериям</h2>
+    <p>Введите цифру, соответствующую необходимому критерию:</p>
+    <select id="criteria">
+        <option value="1">ОЗУ</option>
+        <option value="2">Объем ЖД</option>
+        <option value="3">Операционная система</option>
+        <!-- Добавьте другие критерии по мере необходимости -->
+    </select>
+    <button onclick="filterNotebooks()">Показать результат</button>
+    <div id="result"></div>
+
+    <script>
+        var notebooks = [
+            { name: "Asus", ram: "2ГБ", price: 4666 },
+            { name: "HP", ram: "4ГБ", price: 6600 },
+            { name: "MSI", ram: "6ГБ", price: 5555 }
+            // Добавьте другие ноутбуки по мере необходимости
+        ];
+
+        function filterNotebooks() {
+            var criteria = document.getElementById("criteria").value;
+            var result = "<table><tr><th>Имя</th><th>ОЗУ</th><th>Цена</th></tr>";
+
+            for (var i = 0; i < notebooks.length; i++) {
+                var notebook = notebooks[i];
+                var row = "<tr><td>" + notebook.name + "</td>";
+
+                if (criteria === "1") {
+                    row += "<td>" + notebook.ram + "</td>";
+                } else if (criteria === "2") {
+                    // Добавьте фильтрацию по другим критериям по аналогии с "1"
+                } else if (criteria === "3") {
+                    // Добавьте фильтрацию по другим критериям по аналогии с "1"
+                }
+
+                row += "<td>" + notebook.price + "</td></tr>";
+                result += row;
+            }
+
+            result += "</table>";
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
